@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun LoginScreen() {
     Column(
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -35,8 +37,8 @@ fun LoginScreen() {
                     fontSize = 32.sp
                 )
             )
-            
-            TextField(
+
+            OutlinedTextField(
                 value = "",
                 onValueChange = {},
                 label = { Text(text = "Nome") },

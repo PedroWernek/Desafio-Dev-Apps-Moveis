@@ -32,7 +32,7 @@ fun DropdownDemo(
         Icons.Filled.KeyboardArrowDown
     }
 
-    Column(Modifier.padding(20.dp)) {
+    Column() {
         OutlinedTextField(
             value = selectedItem.nome, // Usa o item recebido por parâmetro
             onValueChange = { }, // Não faz nada, pois a seleção é via dropdown
