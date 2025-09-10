@@ -72,7 +72,7 @@ fun ConfiguracoesScreen(navController: NavController,user: User) {
 
         Column(
             verticalArrangement = Arrangement.spacedBy(20.dp),
-            modifier = Modifier.padding(20.dp)
+            modifier = Modifier.padding(21.dp)
         ) {
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
