@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -34,6 +35,8 @@ import br.edu.up.desafio.domain.User
 
 
 val itemsCor = listOf(
+    ColorItem("Branco", Color.White),
+    ColorItem("Preto", Color.Black),
     ColorItem("Azul", Color.Blue),
     ColorItem("Vermelho", Color.Red),
     ColorItem("Verde", Color.Green),
@@ -43,9 +46,9 @@ val itemsCor = listOf(
 @Composable
 fun ConfiguracoesScreen(navController: NavController,user: User) {
 
-    var nome by remember { mutableStateOf(user.nome) }
+    var nomeNovo by remember { mutableStateOf(user.nome) }
     var corSelecionadaNome by remember { mutableStateOf(user.configuration.corNome) }
-
+    var corSelecionadaFundo by remember { mutableStateOf(user.configuration.corFundo) }
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -73,10 +76,10 @@ fun ConfiguracoesScreen(navController: NavController,user: User) {
         ) {
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
-                value = nome,
+                value = nomeNovo,
                 label = { Text(text = "Nome de Usuário") },
                 onValueChange = { novoValor ->
-                    nome = novoValor
+                    nomeNovo = novoValor
                 }
             )
             DropdownDemo(
@@ -90,11 +93,20 @@ fun ConfiguracoesScreen(navController: NavController,user: User) {
             DropdownDemo(
                 ddmName = "Cor Fundo",
                 items = itemsCor,
-                selectedItem = corSelecionadaNome,
+                selectedItem = corSelecionadaFundo,
                 onItemSelected = { novaCor: ColorItem ->
-                    corSelecionadaNome = novaCor
+                    corSelecionadaFundo = novaCor
                 }
             )
+            Button(
+                onClick = {
+                    user.nome = nomeNovo
+                    user.configuration.corNome = corSelecionadaNome
+                    user.configuration.corFundo = corSelecionadaFundo
+                    navController.popBackStack()
+                          },
+
+            ) { Text(text = "Salvar")}
         }
     }
 }

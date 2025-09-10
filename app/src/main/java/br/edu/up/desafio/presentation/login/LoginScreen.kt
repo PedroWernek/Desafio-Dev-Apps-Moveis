@@ -46,7 +46,7 @@ fun LoginScreen(navController: NavController, user: User) {
             )
 
             OutlinedTextField(
-                value = "",
+                value = nomeUsuario,
                 onValueChange = { nomeUsuario = it},
                 label = { Text(text = "Nome") },
                 )

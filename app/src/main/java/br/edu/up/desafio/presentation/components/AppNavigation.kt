@@ -14,7 +14,7 @@ import br.edu.up.desafio.presentation.settings.ConfiguracoesScreen
 fun AppNavigation(user: User){
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "tela1") {
+    NavHost(navController = navController, startDestination = "login") {
         composable("login") { LoginScreen(navController, user) }
         composable("boas_vindas") { BoasVindasScreen(navController, user) }
         composable("configuracoes") { ConfiguracoesScreen(navController, user) }
