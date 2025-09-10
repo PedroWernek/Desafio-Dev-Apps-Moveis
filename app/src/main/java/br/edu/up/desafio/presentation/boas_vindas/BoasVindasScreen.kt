@@ -11,38 +11,27 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import br.edu.up.desafio.data.AppConfiguration
-import br.edu.up.desafio.data.User
-import br.edu.up.desafio.presentation.settings.itemsCor
+import androidx.navigation.NavController
+import br.edu.up.desafio.domain.User
 
 @Composable
-fun BoasVindasScreen(user: User) {
+fun BoasVindasScreen(navController: NavController, user: User) {
     Column(
-        modifier = Modifier.fillMaxSize().background(color = user.configuration.corFundo),
+        modifier = Modifier.fillMaxSize().background(color = user.configuration.corFundo.cor),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text ="Bem Vindo(a)\n\n${user.nome}", fontSize = 30.sp, color = user.configuration.corNome)
+            Text(text ="Bem Vindo(a)\n\n${user.nome}", fontSize = 30.sp, color = user.configuration.corNome.cor)
             Spacer(modifier = Modifier.padding(16.dp))
-            Button(onClick = {}) {
+            Button(onClick = {
+                navController.navigate("configuracoes")
+            }) {
                 Text(text = "Configurações")
             }
         }
 
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun BoasVindasScreenPreview() {
-    val sampleUser = User(
-        nome = "Usuário Teste",
-        configuration = AppConfiguration(corNome = Color.Black, corFundo = Color.White)
-    )
-    BoasVindasScreen(sampleUser)
 }

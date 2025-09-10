@@ -1,4 +1,3 @@
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -8,13 +7,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
-import br.edu.up.desafio.data.ColorItem
+import br.edu.up.desafio.domain.ColorItem
 
 @Composable
 fun DropdownDemo(
@@ -32,7 +28,7 @@ fun DropdownDemo(
         Icons.Filled.KeyboardArrowDown
     }
 
-    Column() {
+    Column {
         OutlinedTextField(
             value = selectedItem.nome, // Usa o item recebido por parâmetro
             onValueChange = { }, // Não faz nada, pois a seleção é via dropdown

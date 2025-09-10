@@ -1,4 +1,4 @@
-package br.edu.up.desafio.data
+package br.edu.up.desafio.domain
 
 import androidx.compose.ui.graphics.Color
 

@@ -9,7 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import br.edu.up.desafio.data.User
+import br.edu.up.desafio.domain.User
+import br.edu.up.desafio.presentation.components.AppNavigation
 import br.edu.up.desafio.ui.theme.DesafioTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
                 val usuario: User = User("")
                 Scaffold(modifier = Modifier.Companion.fillMaxSize()) { innerPadding ->
                     Surface(modifier = Modifier.Companion.padding(innerPadding)) {
-
+                        AppNavigation(usuario)
                     }
                 }
             }
